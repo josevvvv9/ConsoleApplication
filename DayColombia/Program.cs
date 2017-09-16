@@ -27,7 +27,6 @@ namespace DayColombia
                     }
                 //Console.ReadLine();
             }
-
             Console.ReadLine();
         }
     }
