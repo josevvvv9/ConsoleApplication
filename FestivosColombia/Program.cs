@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -140,10 +140,10 @@ namespace FestivosColombia
             }
         }
 
-        public static List<string> diasHabiles()
+        public static List<DateTime> diasHabiles()
         {
 
-            List<string> diasHabiles = new List<string>();
+            List<DateTime> ListdiasHabiles = new List<DateTime>();
 
             DateTime FechaIni = new DateTime(2017, 1, 1);
             DateTime FechaFin = new DateTime(2017, 12, 31);
@@ -159,50 +159,52 @@ namespace FestivosColombia
                 {
                     xvDiasHabiles = xvDiasHabiles + 1;
                     //Console.WriteLine(string.Format("{0}{1}", "Es Valido :", xvDiasHabiles.ToString()));
-                    Console.WriteLine(FechaIni.AddDays(i));
-
-                    foreach (var item in diasHabiles)
-                    {
-                        diasHabiles.Add(FechaIni.AddDays(i).ToString());
-                    }
+                    //Console.WriteLine(FechaIni.AddDays(i));
+                    ListdiasHabiles.Add(FechaIni.AddDays(i));
+                    
                 }
                 //Console.ReadLine();
             }
 
-            return diasHabiles;
+            return ListdiasHabiles;
+        }
+
+        private static void ExcluirFecha(ref List<DateTime> ListaDias, DateTime fecha)
+        {
+            if (ListaDias.Contains(fecha) == true)
+                ListaDias.Remove(fecha);
         }
 
         public static void calendarioColombia()
         {
 
-            List<string> diasFestivoC = new List<string>();
-            List<string> diasHabilesC = new List<string>();
+            List<DateTime> diasFestivoC = new List<DateTime>();
+            List<DateTime> calendarioC = new List<DateTime>();
+
+            
+            foreach (var item in diasHabiles())
+            {
+                calendarioC.Add(item);
+            }
 
             foreach (var item in DiasFestivos(2017))
             {
-                //Console.WriteLine(item);
-                diasFestivoC.Add(item.ToString());
+                diasFestivoC.Add(item);
+                ExcluirFecha(ref calendarioC, item);
+
             }
 
-
-            foreach (var item in diasHabiles())
+            foreach (var item in calendarioC)
             {
-                diasHabilesC.Add(item.ToString());
+                Console.WriteLine(item);
             }
-
-           
-
-            diasHabiles();
 
             Console.ReadLine();
+
         }
         static void Main(string[] args)
         {
-
             calendarioColombia();
-
-            
-
         }
 
 
