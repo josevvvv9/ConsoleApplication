@@ -24,13 +24,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DayColombia", "DayColombia\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarioColombia", "FestivosColombia\CalendarioColombia.csproj", "{6335A151-85FA-4A71-89FE-99B5A18AE62F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskPro", "TaskPro\TaskPro.csproj", "{08F6F994-8CDF-4449-B9E0-6A21E9629334}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Librerias", "Librerias", "{8171D1C5-0C04-414D-9A23-52B62CD74ED9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Librerias externas", "Librerias externas", "{8171D1C5-0C04-414D-9A23-52B62CD74ED9}"
 	ProjectSection(SolutionItems) = preProject
 		ASquare.WindowsTaskScheduler.dll = ASquare.WindowsTaskScheduler.dll
 		Microsoft.Win32.TaskScheduler.dll = Microsoft.Win32.TaskScheduler.dll
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Librerias", "Librerias", "{198D2C50-4ED9-4504-9F83-C081E46A6BBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DllCalendarioColombia", "DllCalendarioColombia\DllCalendarioColombia.csproj", "{CAE9C95D-CA26-4E53-B202-E0D8D2EF585B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DllTaskScheduled", "DllTaskScheduled\DllTaskScheduled.csproj", "{8946B875-81D0-4C7E-AFA8-3CE3BF499C64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "appTareas", "..\..\..\Documents\Visual Studio 2015\Projects\appTareas\appTareas\appTareas.csproj", "{D93728E9-404E-426E-9672-08F71BF2B4F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -74,12 +80,24 @@ Global
 		{6335A151-85FA-4A71-89FE-99B5A18AE62F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6335A151-85FA-4A71-89FE-99B5A18AE62F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6335A151-85FA-4A71-89FE-99B5A18AE62F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{08F6F994-8CDF-4449-B9E0-6A21E9629334}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{08F6F994-8CDF-4449-B9E0-6A21E9629334}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{08F6F994-8CDF-4449-B9E0-6A21E9629334}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{08F6F994-8CDF-4449-B9E0-6A21E9629334}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAE9C95D-CA26-4E53-B202-E0D8D2EF585B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAE9C95D-CA26-4E53-B202-E0D8D2EF585B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAE9C95D-CA26-4E53-B202-E0D8D2EF585B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAE9C95D-CA26-4E53-B202-E0D8D2EF585B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8946B875-81D0-4C7E-AFA8-3CE3BF499C64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8946B875-81D0-4C7E-AFA8-3CE3BF499C64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8946B875-81D0-4C7E-AFA8-3CE3BF499C64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8946B875-81D0-4C7E-AFA8-3CE3BF499C64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D93728E9-404E-426E-9672-08F71BF2B4F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D93728E9-404E-426E-9672-08F71BF2B4F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D93728E9-404E-426E-9672-08F71BF2B4F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D93728E9-404E-426E-9672-08F71BF2B4F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CAE9C95D-CA26-4E53-B202-E0D8D2EF585B} = {198D2C50-4ED9-4504-9F83-C081E46A6BBB}
+		{8946B875-81D0-4C7E-AFA8-3CE3BF499C64} = {198D2C50-4ED9-4504-9F83-C081E46A6BBB}
 	EndGlobalSection
 EndGlobal

@@ -1,12 +1,12 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FestivosColombia
+namespace DllCalendarioColombia
 {
-    class Program
+    public class GenerarCalendario
     {
 
         public static List<DateTime> DiasFestivos(int Anio)
@@ -140,13 +140,15 @@ namespace FestivosColombia
             }
         }
 
-        public static List<DateTime> diasHabiles()
+        public static List<DateTime> diasHabiles(string fechaInicio, string fechaFin)
         {
+          
+            
 
             List<DateTime> ListdiasHabiles = new List<DateTime>();
-
-            DateTime FechaIni = new DateTime(2017, 1, 1);
-            DateTime FechaFin = new DateTime(2017, 12, 31);
+ 
+            DateTime FechaIni = Convert.ToDateTime(fechaInicio);
+            DateTime FechaFin = Convert.ToDateTime(fechaFin);
             int xvDiferenciaFechas = (FechaFin - FechaIni).Days;
 
             int xvDiasHabiles = 0;
@@ -161,7 +163,7 @@ namespace FestivosColombia
                     //Console.WriteLine(string.Format("{0}{1}", "Es Valido :", xvDiasHabiles.ToString()));
                     //Console.WriteLine(FechaIni.AddDays(i));
                     ListdiasHabiles.Add(FechaIni.AddDays(i));
-                    
+
                 }
                 //Console.ReadLine();
             }
@@ -175,14 +177,14 @@ namespace FestivosColombia
                 ListaDias.Remove(fecha);
         }
 
-        public static void calendarioColombia()
+        public static List<string> calendarioColombia(string fechaInicio, string fechaFin)
         {
 
             List<DateTime> diasFestivoC = new List<DateTime>();
             List<DateTime> calendarioC = new List<DateTime>();
+            List<string> salida = new List<string>();
 
-            
-            foreach (var item in diasHabiles())
+            foreach (var item in diasHabiles(fechaInicio,fechaFin))
             {
                 calendarioC.Add(item);
             }
@@ -196,17 +198,11 @@ namespace FestivosColombia
 
             foreach (var item in calendarioC)
             {
-                Console.WriteLine(item.ToString("dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture));
+                salida.Add(item.ToString("dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture));
             }
 
-            Console.ReadLine();
+            return salida;
 
         }
-        static void Main(string[] args)
-        {
-            calendarioColombia();
-        }
-
-
     }
 }
