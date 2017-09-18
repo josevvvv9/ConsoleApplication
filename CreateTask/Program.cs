@@ -58,8 +58,8 @@ namespace CreateTask
         public static void wcfValidacion(Object source, System.Timers.ElapsedEventArgs e)
         {
             Console.WriteLine("Validacion");
-          
-            //Envio correo de transferencia rechazadas
+            /*Se lee el arhcivo xml en la clave de la respuestas si pasa algun registro con error
+              se enviar correo electronico al afiliados con las transferencia rechazadas*/
             wcfRespuesta();
         }
         #endregion
@@ -77,12 +77,7 @@ namespace CreateTask
 
         static void Main(string[] args)
         {
-            //Crear los tareas programadas x fecha,hora 
-
             
-
-
-
             /*
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
