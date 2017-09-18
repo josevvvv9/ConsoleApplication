@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace DllCalendarioColombia
@@ -180,6 +181,8 @@ namespace DllCalendarioColombia
         public static List<string> calendarioColombia(string fechaInicio, string fechaFin)
         {
 
+            string[] date = Regex.Split(fechaInicio, "/");
+
             List<DateTime> diasFestivoC = new List<DateTime>();
             List<DateTime> calendarioC = new List<DateTime>();
             List<string> salida = new List<string>();
@@ -189,7 +192,7 @@ namespace DllCalendarioColombia
                 calendarioC.Add(item);
             }
 
-            foreach (var item in DiasFestivos(2017))
+            foreach (var item in DiasFestivos(Convert.ToInt32(date[2])))
             {
                 diasFestivoC.Add(item);
                 ExcluirFecha(ref calendarioC, item);
