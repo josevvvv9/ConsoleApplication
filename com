@@ -70,3 +70,114 @@ Se ha completado el comando correctamente.
 
 
 C:\Users\Administrador>
+
+
+using ASquare.WindowsTaskScheduler;
+using ASquare.WindowsTaskScheduler.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace appASquare
+{
+    class Program
+    {
+        public static void createTaskHourly(string NameTask,string Application,
+                                      int year, int month,int day,
+                                      int hour , int minutes,int seconds)
+        {
+            SchedulerResponse response = WindowTaskScheduler
+              .Configure()
+              .CreateTask(NameTask, Application)
+              .RunHourly()//Una vez
+              .SetStartDate(new DateTime(year, month, day))//Fecha
+              .SetStartTime(new TimeSpan(hour, minutes, seconds))//hora
+              .Execute();
+        }
+
+
+        public static void createTaskAllDaily(string NameTask, string Application,
+                                     int year, int month, int day,
+                                     int hour, int minutes, int seconds,
+                                     int EveryXMinutes)
+        {
+            SchedulerResponse response = WindowTaskScheduler
+              .Configure()
+              .CreateTask(NameTask, Application)
+              .RunDaily() //Todos los dias
+              .RunEveryXMinutes(EveryXMinutes)
+              //.RunDurationFor(new TimeSpan(18, 0, 0))//Durante
+              .SetStartDate(new DateTime(year, month, day))//Fecha
+              .SetStartTime(new TimeSpan(hour, minutes, seconds))//hora
+              .Execute();
+        }
+
+        public static void deleteTaskName(string NameTask)
+        {
+            WindowTaskScheduler.Configure().DeleteTask(NameTask);
+        }
+
+        static void Main(string[] args)
+        {
+//            createTaskAllDaily("TaskName", "C:\\Test.bat", 2017, 9, 16, 8, 3, 0,10);
+
+
+        }
+    }
+}
+
+
+using Microsoft.Win32.TaskScheduler;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Principal;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+
+        public static void GetAndDeleteTask(string taskName)
+        {
+            
+        }
+
+        static void Main(string[] args)
+        {
+            using (TaskService ts = new TaskService())
+            {
+                // Create a new task definition and assign properties
+                TaskDefinition td = ts.NewTask();
+                td.RegistrationInfo.Description = "Does something";
+                td.Principal.LogonType = TaskLogonType.InteractiveToken;
+
+           
+                // Create a trigger that runs the last minute of this year
+                td.Triggers.Add(new TimeTrigger
+                {
+                    StartBoundary = DateTime.Today + TimeSpan.FromHours(23)
+                    + TimeSpan.FromMinutes(23) + TimeSpan.FromSeconds(40)
+                });
+
+                //Opciones de seguridad
+                td.Settings.Priority = System.Diagnostics.ProcessPriorityClass.High;
+                
+
+                // Add an action that will launch Notepad whenever the trigger fires
+                td.Actions.Add(new ExecAction("notepad.exe", "c:\\test.log", null));
+
+
+
+                // Register the task in the root folder
+                const string taskName = "jose";
+                ts.RootFolder.RegisterTaskDefinition(taskName, td)
+
+            }
+        }
+    }
+}
