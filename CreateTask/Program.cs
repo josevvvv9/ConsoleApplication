@@ -74,13 +74,20 @@ namespace CreateTask
         }
         #endregion
 
+
         static void Main(string[] args)
         {
+            //Crear los tareas programadas x fecha,hora 
+
+            
+
+
 
             /*
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
             */
+
             //llamado de funcion
             inicio();
 

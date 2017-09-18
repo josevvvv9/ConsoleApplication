@@ -22,7 +22,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimerRun", "TimerRun\TimerR
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DayColombia", "DayColombia\DayColombia.csproj", "{E918A5CA-A339-4BA9-B52E-5FBBA1B559EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FestivosColombia", "FestivosColombia\FestivosColombia.csproj", "{6335A151-85FA-4A71-89FE-99B5A18AE62F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarioColombia", "FestivosColombia\CalendarioColombia.csproj", "{6335A151-85FA-4A71-89FE-99B5A18AE62F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskPro", "TaskPro\TaskPro.csproj", "{08F6F994-8CDF-4449-B9E0-6A21E9629334}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppASquare", "appASquare\AppASquare.csproj", "{C29E34D5-BE63-4BBF-A55D-626123D2D050}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppTaskScheduler", "AppTaskScheduler\AppTaskScheduler.csproj", "{097267B4-DC60-4B7B-9138-D5EDE3946F39}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -66,6 +72,18 @@ Global
 		{6335A151-85FA-4A71-89FE-99B5A18AE62F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6335A151-85FA-4A71-89FE-99B5A18AE62F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6335A151-85FA-4A71-89FE-99B5A18AE62F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08F6F994-8CDF-4449-B9E0-6A21E9629334}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08F6F994-8CDF-4449-B9E0-6A21E9629334}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08F6F994-8CDF-4449-B9E0-6A21E9629334}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08F6F994-8CDF-4449-B9E0-6A21E9629334}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C29E34D5-BE63-4BBF-A55D-626123D2D050}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C29E34D5-BE63-4BBF-A55D-626123D2D050}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C29E34D5-BE63-4BBF-A55D-626123D2D050}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C29E34D5-BE63-4BBF-A55D-626123D2D050}.Release|Any CPU.Build.0 = Release|Any CPU
+		{097267B4-DC60-4B7B-9138-D5EDE3946F39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{097267B4-DC60-4B7B-9138-D5EDE3946F39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{097267B4-DC60-4B7B-9138-D5EDE3946F39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{097267B4-DC60-4B7B-9138-D5EDE3946F39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
