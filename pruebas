@@ -17,8 +17,8 @@ namespace CalendarioC
             List<DateTime> diasFestivos = new List<DateTime>();
 
             IncluirFecha(ref diasFestivos, new DateTime(Anio, 1, 1)); //Primero de Enero
-            IncluirFecha(ref diasFestivos, SiguienteDiaSemana(DayOfWeek.Monday, new DateTime(Anio, 1, 6))); //Reyes magos
-            IncluirFecha(ref diasFestivos, SiguienteDiaSemana(DayOfWeek.Monday, new DateTime(Anio, 3, 19))); //San Jose
+            IncluirFecha(ref diasFestivos, SiguienteDiaSemana(DayOfWeek.Monday, new DateTime(Anio, 1, 9))); //Reyes magos
+            IncluirFecha(ref diasFestivos, SiguienteDiaSemana(DayOfWeek.Monday, new DateTime(Anio, 3, 20))); //San Jose
             IncluirFecha(ref diasFestivos, SiguienteDiaSemana(DayOfWeek.Sunday, Pascua, true, false)); //Domingo de Ramos
             IncluirFecha(ref diasFestivos, SiguienteDiaSemana(DayOfWeek.Thursday, Pascua, true)); //Jueves Santo
             IncluirFecha(ref diasFestivos, SiguienteDiaSemana(DayOfWeek.Friday, Pascua, true)); //Viernes Santo
@@ -31,14 +31,13 @@ namespace CalendarioC
             IncluirFecha(ref diasFestivos, SiguienteDiaSemana(DayOfWeek.Monday, Pascua).AddDays(70)); //Sagrado Corazón
 
 
-            IncluirFecha(ref diasFestivos, SiguienteDiaSemana(DayOfWeek.Monday, new DateTime(Anio, 6, 29))); //san Pedro y san Pablo
+            IncluirFecha(ref diasFestivos, SiguienteDiaSemana(DayOfWeek.Monday, new DateTime(Anio, 6, 3))); //san Pedro y san Pablo
             IncluirFecha(ref diasFestivos, new DateTime(Anio, 7, 20)); //Grito de Independencia
             IncluirFecha(ref diasFestivos, new DateTime(Anio, 8, 7)); // Batalla de Boyacá
-            IncluirFecha(ref diasFestivos, SiguienteDiaSemana(DayOfWeek.Monday, new DateTime(Anio, 8, 15))); //Asuncion de la virgen
-            IncluirFecha(ref diasFestivos, SiguienteDiaSemana(DayOfWeek.Monday, new DateTime(Anio, 10, 12))); //Día de la Raza
-            IncluirFecha(ref diasFestivos, SiguienteDiaSemana(DayOfWeek.Monday, new DateTime(Anio, 10, 12))); //Todos los Santos
-            IncluirFecha(ref diasFestivos, SiguienteDiaSemana(DayOfWeek.Monday, new DateTime(Anio, 11, 1))); //Independencia de Cartagena
-            IncluirFecha(ref diasFestivos, SiguienteDiaSemana(DayOfWeek.Monday, new DateTime(Anio, 11, 11))); //Independencia de Cartagena
+            IncluirFecha(ref diasFestivos, SiguienteDiaSemana(DayOfWeek.Monday, new DateTime(Anio, 8, 21))); //Asuncion de la virgen
+            IncluirFecha(ref diasFestivos, SiguienteDiaSemana(DayOfWeek.Monday, new DateTime(Anio, 10, 16))); //Día de la Raza
+            IncluirFecha(ref diasFestivos, SiguienteDiaSemana(DayOfWeek.Monday, new DateTime(Anio, 11, 6))); //Todos los Santos
+            IncluirFecha(ref diasFestivos, SiguienteDiaSemana(DayOfWeek.Monday, new DateTime(Anio, 11, 13))); //Independencia de Cartagena
             IncluirFecha(ref diasFestivos, new DateTime(Anio, 12, 8)); // Inmaculada Concepción
             IncluirFecha(ref diasFestivos, new DateTime(Anio, 12, 25)); // Navidad
 
@@ -211,18 +210,39 @@ namespace CalendarioC
         private static List<string> fechasCorte()
         {
 
-            DateTime Fecha1 = Convert.ToDateTime("2017/10/07");
-            DateTime Fecha2 = Convert.ToDateTime("2017/10/15");
-            DateTime Fecha3 = Convert.ToDateTime("2017/10/23");
-            DateTime Fecha4 = Convert.ToDateTime("2017/10/28");
+            DateTime fechaHoy = DateTime.Now;
 
-            List<string> ListFechasCorte = new List<string>();
-            ListFechasCorte.Add(Fecha1.ToString("dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture));
-            ListFechasCorte.Add(Fecha2.ToString("dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture));
-            ListFechasCorte.Add(Fecha3.ToString("dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture));
-            ListFechasCorte.Add(Fecha4.ToString("dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture));
+            int anio = 2017;
 
-            return ListFechasCorte;
+            //Leer de base de datos
+            string dia1 = "07";
+            string dia2 = "15";
+            string dia3 = "23";
+            string dia4 = "28";
+
+            List<string> dias = new List<string>() {
+                dia1,dia2,dia3,dia4
+            };
+
+            List<string> meses = new List<string>()
+            {
+                "01","02","03","04","05","06","07","08","09","10","11","12"
+            };
+
+            List<string> fechas = new List<string>();
+
+
+            foreach (var itemMeses in meses)
+            {
+                foreach (var itemDias in dias)
+                {
+                    var fecha = anio.ToString() + "/" + itemMeses.ToString() + "/" +itemDias.ToString();
+                    fechas.Add(fecha);
+                }
+          
+            }
+
+            return fechas;
 
         }
 
@@ -252,7 +272,8 @@ namespace CalendarioC
 
                 if (val == true)
                 {
-                    listSalida.Add(item);
+                   
+                    listSalida.Add(fecha.ToString("dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture));
                     fechaDeCorte.Remove(item);
                     fechaDefinitiva(fechaInicio, fechaFin, item, sigDia, fechaDeCorte, listSalida);
                 }
@@ -261,9 +282,10 @@ namespace CalendarioC
                     sigDia = sigDia + 1;
                     var fechaN = fecha.AddDays(sigDia);
 
-
+                    
 
                     var valf = fechaNuevas(ref arrCalendario, fechaN.ToString("dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture));
+
 
                     if (valf == true)
                     {
@@ -274,15 +296,13 @@ namespace CalendarioC
 
                     fechaDefinitiva(fechaInicio, fechaFin, fechaN.ToString("dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture), sigDia, fechaDeCorte, listSalida);
 
-
-
                 }
 
 
             }
 
             Console.WriteLine("Salida");
-            //Imprime los valores de la lista de salida
+          
             foreach (var item in listSalida)
             {
                 Console.WriteLine(item);
@@ -291,18 +311,12 @@ namespace CalendarioC
             Console.ReadKey();
         }
 
-        
-
-
         static void Main(string[] args)
         {
 
-            List<string> listSalida  = new List<string>();
-            fechaDefinitiva("01/10/2017", "31/10/2017","",0, fechasCorte(), listSalida);
-
+            List<string> listSalida = new List<string>();
+            fechaDefinitiva("01/01/2017", "31/12/2017", "", 0, fechasCorte(), listSalida);
         }
-        
-
 
     }
 }
